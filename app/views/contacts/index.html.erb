@@ -2,7 +2,11 @@
 
 <h1>Contacts</h1>
 
-<table>
+<% if @contacts.empty? then %>
+  <p>No contacts registered yet</p>
+<% else %>
+
+<table class="table table-stripped">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,12 +28,13 @@
         <td><%= contact.state %></td>
         <td><%= link_to 'Show', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% end %>
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Contact', new_contact_path, class: 'btn btn-default' %>

@@ -1,29 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @contact.age %>
-</p>
+<% if notice then %>
+  <p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+<div class="row">
+  <div class="col-lg-4 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @contact.name %></h3>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Age</td>
+            <td><%= @contact.age %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= @contact.email %></td>
+          </tr>
+          <tr>
+            <td>Role</td>
+            <td><%= @contact.role %></td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td><%= @contact.state %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @contact.role %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @contact.state %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Edit', edit_contact_path(@contact), class: "btn btn-link" %>
+<%= link_to 'Back', contacts_path, class: "btn btn-link" %>
